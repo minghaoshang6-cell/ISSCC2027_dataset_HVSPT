@@ -45,7 +45,7 @@ Efficiency (%) = 100 × EFF
 
 Under the working unit interpretation, the factor `0.001` converts output current from mA to A. It does not establish the units independently. Efficiency is calculated from the stored inputs, rather than an independent efficiency-meter reading. Whether auxiliary supply power is included is not documented.
 
-All 72 exported records contain the four numeric inputs and a cached efficiency value. Sixteen source rows contain no measurement inputs and have cached division-by-zero errors; they are excluded and listed in `docs/excluded_rows.csv`. Missing inputs must not be interpreted as measured zeros.
+All 72 exported records contain the four numeric inputs and a cached efficiency value.
 
 ## Measurement coverage
 
@@ -60,43 +60,3 @@ All six groups are stored in `data/measurements.csv`. The ranges below are the r
 | G5 | 70–81 | 3.967–4.003 | 9.990–10.004 | 50–600 | 12 |
 | G6 | 85–96 | 3.957–4.002 | 11.089–12.000 | 50–600 | 12 |
 
-Group identifiers represent contiguous source blocks. They do not establish nominal settings, separate devices, independent repetitions, or operating modes. The recorded current values, including 151, 451 and 502, are retained without adjustment.
-
-The source workbook does not specify instrumentation, acquisition procedure, ambient temperature, switching frequency, operating mode, auxiliary supply accounting, or uncertainty. These details are therefore not inferred here. Authors should complete `docs/measurement_setup.md` with the actual measurement context before public release.
-
-## Validate the files
-
-Python 3.10 or later is required. Run from the repository root:
-
-```bash
-python scripts/reproduce.py
-```
-
-The script checks the expected 72 records and six groups, unique record identifiers, finite numeric values, nonzero denominators, and agreement between recomputed efficiency and cached values within an absolute tolerance of `1e-12`. It writes `results/recomputed.csv`, `results/group_peaks.csv`, and `results/validation.json`.
-
-Validation checks arithmetic consistency. It does not independently verify measurement accuracy, physical units, or power-accounting boundaries.
-
-## Plot the efficiency curves
-
-Install the plotting dependency and run:
-
-```bash
-python -m pip install -r requirements-plot.txt
-python scripts/reproduce.py --plot
-```
-
-The script creates `results/efficiency_preview.svg`. It plots 100 times the source formula ratio against `IO`, with one curve per source block. The current unit remains marked as unconfirmed. All 72 valid records are included, with no smoothing, fitting, or outlier removal. Group peaks are maxima among the sampled points, not verified global maxima. No uncertainty intervals are available.
-
-After updating repository contents, refresh the checksums:
-
-```bash
-python scripts/update_checksums.py
-```
-
-## License
-
-The rights holder has not yet selected a license for this dataset or its accompanying code and documentation. See [LICENSE_PENDING.md](LICENSE_PENDING.md). Before public release, include the selected license text, define its scope, and update this section and `metadata.json`.
-
-## Preservation
-
-For long-term availability, archive the completed release with a DOI provider such as Zenodo and add the DOI here after archival. The public repository URL, archival reference, and maintainer have not yet been supplied.
