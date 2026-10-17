@@ -13,24 +13,11 @@ The workbook does not explicitly state physical units. The working interpretatio
 ├── data/
 │   ├── measurements.csv
 │   └── groups.csv
-├── docs/
-│   ├── data_dictionary.md
-│   ├── measurement_setup.md
-│   ├── processing.md
-│   └── excluded_rows.csv
-├── scripts/
-│   ├── reproduce.py
-│   └── update_checksums.py
 ├── results/
 │   ├── recomputed.csv
 │   ├── group_peaks.csv
-│   ├── validation.json
 │   └── efficiency_preview.svg
-├── LICENSE_PENDING.md
-├── metadata.json
 ├── README.md
-├── requirements-plot.txt
-└── SHA256SUMS.txt
 ```
 
 ## Data dictionary
