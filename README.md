@@ -30,10 +30,10 @@ The workbook does not explicitly state physical units. The working interpretatio
 | `group_id` | Source block identifier, G1–G6 | None |
 | `source_sheet` | Original worksheet name | None |
 | `source_row` | Original one-based worksheet row number | None |
-| `Vin` | Input voltage, source column A | V, pending confirmation |
-| `IIN` | Input current, source column B | A, pending confirmation |
-| `VO` | Output voltage, source column C | V, pending confirmation |
-| `IO` | Output current, source column D | mA, pending confirmation |
+| `Vin` | Input voltage, source column A | V |
+| `IIN` | Input current, source column B | A |
+| `VO` | Output voltage, source column C | V |
+| `IO` | Output current, source column D | mA |
 | `EFF_cached_ratio` | Cached result of the workbook efficiency formula | Ratio under the working unit interpretation |
 
 The source formula is:
